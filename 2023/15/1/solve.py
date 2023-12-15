@@ -3,7 +3,12 @@ line = input()
 
 total = 0
 for x in line.split(","):
-    res = reduce(lambda a, b: ((a + b) * 17) % 256, map(ord, x), 0)
-    total += res
+    curr = 0
+    for char in x:
+        curr += ord(char)
+        curr *= 17
+        curr %= 256
+    total += curr
 
 print(total)
+
